@@ -18,6 +18,18 @@ status](https://www.r-pkg.org/badges/version/captcha)](https://CRAN.R-project.or
 
 This package provides a **professional-grade captcha generation system** with advanced anti-AI features designed to resist automated solving by neural networks while remaining human-solvable. In addition to the original captcha solving capabilities, the package now includes comprehensive security features for generating AI-resistant captchas.
 
+### 🚀 **NEW: SaaS Platform Available**
+
+Deploy as a complete SaaS service with REST API, multi-platform SDKs, and production infrastructure:
+
+- ✅ **Production REST API** - Scalable API server with authentication, rate limiting
+- ✅ **Web SDK (JavaScript)** - Drop-in widget for websites (login, register, recovery)
+- ✅ **Flutter SDK** - Cross-platform mobile (iOS, Android, Web)
+- ✅ **Usage Tracking** - Real-time analytics, billing integration
+- ✅ **Docker & Kubernetes** - Production deployment configurations
+
+📖 **[Complete SaaS Documentation →](SAAS.md)**
+
 ### 🎯 Key Anti-AI Features
 
 - **🔒 Cryptographic Security**: Token-based validation with SHA-256 signatures
