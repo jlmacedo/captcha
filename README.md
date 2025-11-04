@@ -14,7 +14,174 @@ coverage](https://codecov.io/gh/decryptr/captcha/branch/master/graph/badge.svg)]
 status](https://www.r-pkg.org/badges/version/captcha)](https://CRAN.R-project.org/package=captcha)
 <!-- badges: end -->
 
-This package is an extensible API to build models and solve Captchas
+## 🛡️ Professional Anti-AI Resistant Captcha Solution
+
+This package provides a **professional-grade captcha generation system** with advanced anti-AI features designed to resist automated solving by neural networks while remaining human-solvable. In addition to the original captcha solving capabilities, the package now includes comprehensive security features for generating AI-resistant captchas.
+
+### 🎯 Key Anti-AI Features
+
+- **🔒 Cryptographic Security**: Token-based validation with SHA-256 signatures
+- **🎨 Adversarial Distortions**: Frequency-domain noise, 3D transforms, dynamic occlusion
+- **🧠 Semantic Elements**: Context clues that require human understanding
+- **⏱️ Multi-Modal Verification**: Timing analysis, behavioral pattern detection
+- **🚦 Rate Limiting**: Automatic session tracking and abuse prevention
+- **📊 Progressive Difficulty**: Adaptive complexity based on session history
+- **🔍 Risk Scoring**: Comprehensive suspicious activity detection
+- **📈 Analytics**: Real-time monitoring and statistics
+
+### ⚡ Quick Start: Anti-AI Captcha
+
+```r
+library(captcha)
+
+# Create a secure captcha challenge
+challenge <- captcha_create_challenge(difficulty = "hard")
+plot(challenge$image)
+
+# Verify user's solution
+result <- captcha_verify_solution(
+  token = challenge$token,
+  answer = "user_answer",
+  captcha_id = challenge$captcha_id,
+  solve_time_seconds = 8.5,
+  session_id = "192.168.1.1"
+)
+
+if (result$valid) {
+  print("✓ Access granted!")
+} else {
+  print(paste("✗ Verification failed:", result$message))
+}
+```
+
+### 🔬 Difficulty Levels
+
+| Level | Characters | Rotation | Features | Use Case |
+|-------|-----------|----------|----------|----------|
+| **Easy** | 4 | ±20° | Basic distortions | Low-security forms |
+| **Medium** | 5-6 | ±30° | + Adversarial noise | Standard protection |
+| **Hard** | 6-7 | ±40° | + Semantic elements | High-security sites |
+| **Extreme** | 7-8 | ±50° | All features enabled | Maximum protection |
+
+### 🎮 Interactive Demo
+
+```r
+# Complete workflow with interactive solving
+captcha_complete_workflow(difficulty = "medium", interactive = TRUE)
+```
+
+### 📦 Production API Example
+
+```r
+# Configure for production
+captcha_configure(
+  secret_key = "your_64_character_secret_key_here",
+  default_difficulty = "hard"
+)
+
+# Create challenge endpoint
+challenge <- captcha_create_challenge(
+  session_id = request$ip_address,
+  use_progressive_difficulty = TRUE,
+  expiry_seconds = 300
+)
+
+# Verification endpoint with comprehensive checks
+result <- captcha_verify_solution(
+  token = request$token,
+  answer = request$answer,
+  captcha_id = request$captcha_id,
+  solve_time_seconds = request$solve_time,
+  session_id = request$ip_address,
+  behavior_data = request$behavior_data,  # Optional mouse/keyboard data
+  strict_mode = TRUE
+)
+
+# Risk assessment included
+print(paste("Risk Level:", result$risk_level))  # low/medium/high/critical
+print(paste("Risk Score:", result$risk_score))  # 0-100
+```
+
+### 🛡️ Security Features
+
+#### Token-Based Validation
+- Cryptographic signatures prevent tampering
+- Time-limited tokens (default: 5 minutes)
+- One-time use enforcement
+- Secure answer hashing
+
+#### Rate Limiting & Abuse Prevention
+```r
+# Check rate limits
+rate_check <- captcha_check_rate_limit(
+  session_id = "192.168.1.1",
+  max_attempts = 10,
+  time_window_seconds = 3600
+)
+```
+
+#### Multi-Modal Verification
+```r
+# Analyze timing, behavior, and session history
+result <- captcha_verify_multimodal(
+  token = token,
+  answer = answer,
+  captcha_id = captcha_id,
+  solve_time_seconds = 8.5,
+  behavior_data = list(
+    mouse_movements = mouse_data,
+    keypress_intervals = typing_data
+  )
+)
+```
+
+#### System Monitoring
+```r
+# Get real-time statistics
+status <- captcha_system_status()
+cat(status$summary)
+# Output: Success rate, avg solve time, unique sessions, etc.
+```
+
+### 📊 Anti-AI Techniques
+
+**Adversarial Distortions:**
+- Frequency-domain noise specifically designed to fool CNNs
+- 3D perspective transforms (shearing, warping)
+- Variable character spacing and positioning
+- Dynamic occlusion with crossing lines
+- Multi-layer combined effects
+
+**Behavioral Detection:**
+- Suspiciously fast solve times (<2s) flagged
+- Consistent typing speeds detected
+- Linear mouse movements identified
+- Pattern analysis across sessions
+
+**Progressive Security:**
+```r
+# Automatically increases difficulty after failed attempts
+challenge <- captcha_create_challenge(
+  session_id = "192.168.1.1",
+  use_progressive_difficulty = TRUE
+)
+```
+
+### 📚 Examples & Documentation
+
+See complete examples in `inst/examples/anti_ai_example.R`:
+- Basic usage patterns
+- Production deployment
+- Security best practices
+- Behavioral verification
+- Batch generation
+- Error handling
+
+---
+
+## 📖 Original Captcha Solving Features
+
+This package is also an extensible API to build models and solve Captchas
 (Completely Automated Public Turing test to tell Computers and Humans
 Apart). It provides tools to read Captchas, visualize Captchas, annotate
 Captchas, fit models, and share fitted models.

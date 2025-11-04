@@ -1,23 +1,24 @@
 Package: captcha
-Title: Solve Text on Image Computer Vision Challenges
-Version: 0.2.0.9000
-Authors@R: 
-    c(person('Julio', 'Trecenti', 
-             email = 'julio.trecenti@gmail.com', 
+Title: Professional Anti-AI Resistant Captcha Solution
+Version: 0.3.0.9000
+Authors@R:
+    c(person('Julio', 'Trecenti',
+             email = 'julio.trecenti@gmail.com',
              role = c('cre', 'aut'),
              comment = c(ORCID = "0000-0002-1680-6389")))
-Description: Completely Automated Public Turing test to tell 
-  Computers and Humans Apart (Captchas) are tests designed to determine whether 
-  the user is human. This package helps to create, visualize and solve text 
-  based Captchas automatically. The package contains an extensible API so 
-  anyone can contribute with new solutions.
+Description: Professional-grade captcha generation system with advanced
+  anti-AI features including adversarial noise, 3D transforms, semantic elements,
+  token-based validation, rate limiting, and multi-modal verification. Designed
+  to resist automated solving by neural networks while remaining human-solvable.
+  Includes comprehensive security features with cryptographic tokens, session
+  management, behavioral analysis, and progressive difficulty scaling.
 Depends: 
     R (>= 4.1.0)
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
-Imports: 
+Imports:
     torch,
     purrr,
     stringr,
@@ -30,7 +31,11 @@ Imports:
     luz,
     R6,
     rlang,
-    piggyback
+    piggyback,
+    digest,
+    jsonlite,
+    base64enc,
+    stats
 URL: https://github.com/decryptr/captcha,
     https://decryptr.github.io/captcha/
 BugReports: https://github.com/decryptr/captcha/issues
