@@ -39,11 +39,15 @@ Imports:
 URL: https://github.com/decryptr/captcha,
     https://decryptr.github.io/captcha/
 BugReports: https://github.com/decryptr/captcha/issues
-Suggests: 
+Suggests:
     covr,
     knitr,
     rmarkdown,
     testthat (>= 3.0.0),
-    withr
+    withr,
+    plumber,
+    DBI,
+    RSQLite,
+    RPostgres
 Config/testthat/edition: 3
 VignetteBuilder: knitr
